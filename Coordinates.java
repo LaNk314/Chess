@@ -4,18 +4,13 @@ public class Coordinates {
 
     Coordinates(int row, int column){
         this.row = row;
-        this.column = row;
+        this.column = column;
     }
-    /*
-    static public Coordinates getPositions(Figure a){
-        for(int i = 0; i < 8; i++) {
-            for(int j = 0; j < 8; i++){
-                if(a == Board.identifyFigure(i,j)) return new Coordinates(i, j);
-            }
-        }
-        return new Coordinates(9,9);
+
+    @Override
+    public String toString(){
+        return "row: " + row + ", column:  " + column;
     }
-    */
 
 
 }

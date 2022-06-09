@@ -16,15 +16,11 @@ public class Rook extends Figure{
     }
 
     void fillBoard(){
-        WhiteRook[0]  = new Rook(true);
-        Board.putFigure(WhiteRook[0],0, 0);
-        WhiteRook[1]  = new Rook(true);
-        Board.putFigure(WhiteRook[1], 0, 7);
+        WhiteRook[0]  = new Rook(true); Board.putFigure(WhiteRook[0],0, 0);
+        WhiteRook[1]  = new Rook(true); Board.putFigure(WhiteRook[1], 0, 7);
 
-        BlackRook[0] = new Rook(false);
-        Board.putFigure(BlackRook[0], 7, 0);
-        BlackRook[1] = new Rook(false);
-        Board.putFigure(BlackRook[1], 7, 7);
+        BlackRook[0] = new Rook(false); Board.putFigure(BlackRook[0], 7, 0);
+        BlackRook[1] = new Rook(false); Board.putFigure(BlackRook[1], 7, 7);
         }
 
     @Override

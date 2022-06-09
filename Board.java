@@ -24,10 +24,18 @@ public class Board {
     public static Figure identifyFigure(int row, int column){
         return  board[row][column];
     }
-
     public static void putFigure(Figure a, int row, int column) {
         board[row][column] = a;
     }
+    public static Coordinates locateFigure(Figure a){
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+                if(a == board[i][j]) return new Coordinates(i,j);
+            }
+        }
+        return new Coordinates(21,37);
+    }
+
 }
 
 

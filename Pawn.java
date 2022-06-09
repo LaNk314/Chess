@@ -17,11 +17,8 @@ public class Pawn extends Figure{
 
     void fillBoard(){
         for(int i = 0; i < 8; i++){
-            WhitePawns[i] = new Pawn(true);
-            Board.putFigure(WhitePawns[i],1, i);
-            BlackPawns[i] = new Pawn(false);
-            Board.putFigure(BlackPawns[i],6, i);
-
+            WhitePawns[i] = new Pawn(true); Board.putFigure(WhitePawns[i],1, i);
+            BlackPawns[i] = new Pawn(false); Board.putFigure(BlackPawns[i],6, i);
         }
     }
 

@@ -16,11 +16,8 @@ public class King extends Figure{
     }
 
     void fillBoard(){
-        WhiteKing[0] = new King(true);
-        Board.putFigure(WhiteKing[0], 0, 4);
-
-        BlackKing[0] = new King(false);
-        Board.putFigure(BlackKing[0], 7, 3);
+        WhiteKing[0] = new King(true); Board.putFigure(WhiteKing[0], 0, 4);
+        BlackKing[0] = new King(false); Board.putFigure(BlackKing[0], 7, 3);
     }
 
     public String toString(){

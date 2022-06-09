@@ -16,11 +16,8 @@ public class Queen extends Figure{
     }
 
     void fillBoard(){
-        WhiteQueen[0] = new Queen(true);
-        Board.putFigure(WhiteQueen[0], 0, 3);
-
-        BlackQueen[0] = new Queen(false);
-        Board.putFigure(BlackQueen[0], 7, 4);
+        WhiteQueen[0] = new Queen(true); Board.putFigure(WhiteQueen[0], 0, 3);
+        BlackQueen[0] = new Queen(false); Board.putFigure(BlackQueen[0], 7, 4);
     }
 
     public String toString(){
