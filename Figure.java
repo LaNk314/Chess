@@ -5,12 +5,10 @@ public abstract class Figure {
     Figure() {
         fillBoard();
     }
-
-    private void fillBoard(){
-
+    private void fillBoard(){}
+    void move(){}
+    public boolean ifPossible(Coordinates from, Coordinates to){
+        return false;
     }
 
-    void move(){
-
-    }
 }

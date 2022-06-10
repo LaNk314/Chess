@@ -7,6 +7,13 @@ public class Coordinates {
         this.column = column;
     }
 
+    public int getRow(){
+        return this.row;
+    }
+    public int getColumn(){
+        return this.column;
+    }
+
     @Override
     public String toString(){
         return "row: " + row + ", column:  " + column;

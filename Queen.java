@@ -16,8 +16,22 @@ public class Queen extends Figure{
     }
 
     void fillBoard(){
-        WhiteQueen[0] = new Queen(true); Board.putFigure(WhiteQueen[0], 0, 3);
-        BlackQueen[0] = new Queen(false); Board.putFigure(BlackQueen[0], 7, 4);
+        WhiteQueen[0] = new Queen(true); Board.spawnFigure(WhiteQueen[0], 0, 3);
+        BlackQueen[0] = new Queen(false); Board.spawnFigure(BlackQueen[0], 7, 4);
+    }
+
+    @Override
+    public boolean ifPossible(Coordinates from, Coordinates to) {
+        for(int i = -7; i < 8; i++){
+            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn() + i) return true; //mechanika poruszania sie bishopa
+            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn() - i) return true;
+            if(to.getRow() == from.getRow() - i && to.getColumn() == from.getColumn() + i) return true;
+            if(to.getRow() == from.getRow() - i && to.getColumn() == from.getColumn() - i) return true;
+
+            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn()) return true;     //mechanika poruszania sie rooka
+            if(to.getColumn() == from.getColumn() + i && to.getRow() == from.getRow()) return true;
+        }
+        return false;
     }
 
     public String toString(){

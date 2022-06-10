@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Board {
 
     static private Figure[][] board = new Figure[8][8];
@@ -22,9 +24,21 @@ public class Board {
         return result;
     }
     public static Figure identifyFigure(int row, int column){
-        return  board[row][column];
+            return  board[row][column];
+        }
+    public static void moveFigure(Figure a, int row, int column) {
+        Coordinates primaryState = locateFigure(a);
+        if(a.ifPossible(primaryState, new Coordinates(row, column))) {
+            if(row >= 0 && row < 8 && column >= 0 && column < 8) {
+                board[row][column] = a;
+                board[primaryState.getRow()][primaryState.getColumn()] = null;
+                System.out.println("Success!");
+            }
+            else System.out.println("Out of chessboard");
+        }
+        else System.out.print("Invalid move for that figure");
     }
-    public static void putFigure(Figure a, int row, int column) {
+    public static void spawnFigure(Figure a, int row, int column){
         board[row][column] = a;
     }
     public static Coordinates locateFigure(Figure a){

@@ -1,5 +1,4 @@
-public class Player {
-
+public class Player implements IPlayer {
 
 
 }
