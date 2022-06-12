@@ -5,27 +5,25 @@ public class Main {
         System.out.println(board.printBoard());
 
         Pawn ptest = new Pawn();
-        Pawn Btmp = ptest.BlackPawns[4];
-        Pawn Wtmp = ptest.WhitePawns[7];
+        Pawn TmpPawn = ptest.WhitePawns[5];
 
         Rook rtest = new Rook();
         Rook TmpRook = rtest.BlackRook[1];
 
         Knight kntest = new Knight();
-        Knight TmpKnight = kntest.WhiteKnight[0];
+        Knight TmpKnight = kntest.WhiteKnight[1];
 
         Bishop btest = new Bishop();
         Bishop TmpBishop = btest.BlackBishop[1];
 
         King ktest = new King();
-        King TmpKing = ktest.BlackKing[0];
+        King TmpKing = ktest.WhiteKing[0];
 
         Queen qtest = new Queen();
         Queen TmpQueen = qtest.BlackQueen[0];
 
 
 
-        System.out.println(Board.locateFigure(Btmp));
 
 
        /*
@@ -38,25 +36,28 @@ public class Main {
         Board.moveFigure(Wtmp,3, 7);
         */
 
+/*
         System.out.println(Board.locateFigure(TmpRook ));
-        Board.moveFigure(TmpRook, 3,7);
-        Board.moveFigure(TmpRook, 3,2);
-        /*
+        Board.moveFigure(TmpRook, 6,7);
+        Board.moveFigure(TmpRook, 5,0);
+
         System.out.println(Board.locateFigure(TmpKnight));
         Board.moveFigure(TmpKnight, 2,2);
         Board.moveFigure(TmpKnight, 4,3);
 
+        Board.moveFigure(Btmp, 4,4);
         System.out.println(Board.locateFigure(TmpBishop));
-        Board.moveFigure(TmpBishop, 2,0);
-        Board.moveFigure(TmpBishop, 1,1);
-        */
+        Board.moveFigure(TmpBishop, 6,4);
+        Board.moveFigure(TmpBishop, 3,7);
+        Board.moveFigure(TmpBishop, 1,5);
+
+/*
         System.out.println(Board.locateFigure(TmpKing));
         Board.moveFigure(TmpKing, 6,4);
         Board.moveFigure(TmpKing, 5,4);
-
-        System.out.println(Board.locateFigure(TmpQueen));
-        Board.moveFigure(TmpQueen, 3,4);
-        Board.moveFigure(TmpQueen, 3,-1);
+*/
+        Board.moveFigure(TmpPawn,2,5);
+        Board.moveFigure(TmpQueen, -1,5);
 
 
 

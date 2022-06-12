@@ -22,15 +22,56 @@ public class Queen extends Figure{
 
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to) {
-        for(int i = -7; i < 8; i++){
-            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn() + i) return true; //mechanika poruszania sie bishopa
-            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn() - i) return true;
-            if(to.getRow() == from.getRow() - i && to.getColumn() == from.getColumn() + i) return true;
-            if(to.getRow() == from.getRow() - i && to.getColumn() == from.getColumn() - i) return true;
+        int initialRow = from.getRow();
+        int initialColumn = from.getColumn();
+        int destinationRow = to.getRow();
+        int destinationColumn = to.getColumn();
+        int p = Math.min(initialColumn, initialRow);
 
-            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn()) return true;     //mechanika poruszania sie rooka
-            if(to.getColumn() == from.getColumn() + i && to.getRow() == from.getRow()) return true;
+        if(destinationColumn == initialColumn) {
+            for (int i = initialRow + 1; i < 8; i++) {
+                if(Board.identifyFigure(i, initialColumn) != null) break;
+                if (destinationRow == i) return true;
+            }                                                                               //Ruch wzdłuż kolumn
+            for (int i = initialRow - 1; i >= 0; i--) {
+                if(Board.identifyFigure(i, initialColumn) != null) break;
+                if (destinationRow == i) return true;
+            }
+        } else if (destinationRow == initialRow) {
+            for (int i = initialColumn + 1; i < 8; i++) {
+                if(Board.identifyFigure(initialRow, i) != null) break;
+                if (destinationColumn == i) return true;
+            }                                                                               //Ruch wzdłuż wierszy
+            for (int i = initialColumn - 1; i >= 0; i--) {
+                if(Board.identifyFigure(initialRow, i) != null) break;
+                if (destinationColumn == i) return true;
+            }
         }
+
+        if(destinationColumn > initialColumn && destinationRow > initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow + i, initialColumn + i) != null) break;
+                if(destinationRow == initialRow + i && destinationColumn == initialColumn + i) return true;
+            }
+        } else if(destinationColumn > initialColumn && destinationRow < initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow - i, initialColumn + i) != null) break;
+                if(destinationRow == initialRow - i && destinationColumn == initialColumn + i) return true;
+            }
+        } else if(destinationColumn < initialColumn && destinationRow > initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow + i, initialColumn - i) != null) break;
+                if(destinationRow == initialRow + i && destinationColumn == initialColumn - i) return true;
+            }
+        } else if(destinationColumn < initialColumn && destinationRow < initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow - i, initialColumn - i) != null) break;
+                if(destinationRow == initialRow - i && destinationColumn == initialColumn - i) return true;
+            }
+        }
+
+
+
         return false;
     }
 

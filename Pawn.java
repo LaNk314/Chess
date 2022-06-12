@@ -19,16 +19,21 @@ public class Pawn extends Figure{
     }
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to) {
+        int initialRow = from.getRow();
+        int initialColumn = from.getColumn();
+        int destinationRow = to.getRow();
+        int destinationColumn = to.getColumn();
+
         if (color){
-            if(to.getColumn() == from.getColumn()) {
-                if (to.getRow() == from.getRow() + 2 && from.getRow() == 1) return true;
-                else if (to.getRow() == from.getRow() + 1) return true;
+            if(destinationColumn == initialColumn && Board.identifyFigure(initialRow + 1, initialColumn) == null) {
+                if (destinationRow == initialRow + 2 && initialRow == 1) return true;
+                else if (destinationRow == initialRow + 1) return true;
             } return false;
 
         } else {
-            if (to.getColumn() == from.getColumn()) {
-                if (to.getRow() == from.getRow() - 2 && from.getRow() == 6) return true;
-                else if (to.getRow() == from.getRow() - 1) return true;
+            if (destinationColumn == initialColumn && Board.identifyFigure(initialRow - 1, initialColumn) == null) {
+                if (destinationRow == initialRow - 2 && initialRow == 6) return true;
+                else if (destinationRow == initialRow - 1) return true;
             } return false;
         }
     }

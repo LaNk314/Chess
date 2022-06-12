@@ -25,14 +25,19 @@ public class Knight extends Figure{
 
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to){
-        if(to.getRow() == from.getRow() + 2 && to.getColumn() == from.getColumn() + 1) return true;
-        if(to.getRow() == from.getRow() + 2 && to.getColumn() == from.getColumn() + -1) return true;
-        if(to.getRow() == from.getRow() + -2 && to.getColumn() == from.getColumn() + 1) return true;
-        if(to.getRow() == from.getRow() + -2 && to.getColumn() == from.getColumn() - 1) return true;
-        if(to.getColumn() == from.getColumn() + 2 && to.getRow() == from.getRow() + 1) return true;
-        if(to.getColumn() == from.getColumn() + 2 && to.getRow() == from.getRow() - 1) return true;
-        if(to.getColumn() == from.getColumn() - 2 && to.getRow() == from.getRow() + 1) return true;
-        if(to.getColumn() == from.getColumn() - 2 && to.getRow() == from.getRow() - 1) return true;
+        int initialRow = from.getRow();
+        int initialColumn = from.getColumn();
+        int destinationRow = to.getRow();
+        int destinationColumn = to.getColumn();
+
+        if(destinationRow == initialRow + 2 && destinationColumn == initialColumn + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationRow == initialRow + 2 && destinationColumn == initialColumn + -1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationRow == initialRow + -2 && destinationColumn == initialColumn + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationRow == initialRow + -2 && destinationColumn == initialColumn - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationColumn == initialColumn + 2 && destinationRow == initialRow + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationColumn == initialColumn + 2 && destinationRow == initialRow - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationColumn == initialColumn - 2 && destinationRow == initialRow + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationColumn == initialColumn - 2 && destinationRow == initialRow - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
         else return false;
     }
 

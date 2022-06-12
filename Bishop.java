@@ -24,12 +24,34 @@ public class Bishop extends Figure{
     }
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to){
-        for(int i = -7; i < 8; i++){
-            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn() + i) return true;
-            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn() - i) return true;
-            if(to.getRow() == from.getRow() - i && to.getColumn() == from.getColumn() + i) return true;
-            if(to.getRow() == from.getRow() - i && to.getColumn() == from.getColumn() - i) return true;
+        int initialRow = from.getRow();
+        int initialColumn = from.getColumn();
+        int destinationRow = to.getRow();
+        int destinationColumn = to.getColumn();
+        int p = Math.min(initialColumn, initialRow);
+
+        if(destinationColumn > initialColumn && destinationRow > initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow + i, initialColumn + i) != null) break;
+                if(destinationRow == initialRow + i && destinationColumn == initialColumn + i) return true;
+            }
+        } else if(destinationColumn > initialColumn && destinationRow < initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow - i, initialColumn + i) != null) break;
+                if(destinationRow == initialRow - i && destinationColumn == initialColumn + i) return true;
+            }
+        } else if(destinationColumn < initialColumn && destinationRow > initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow + i, initialColumn - i) != null) break;
+                if(destinationRow == initialRow + i && destinationColumn == initialColumn - i) return true;
+            }
+        } else if(destinationColumn < initialColumn && destinationRow < initialRow){
+            for(int i = 1; i <= p; i++){
+                if(Board.identifyFigure(initialRow - i, initialColumn - i) != null) break;
+                if(destinationRow == initialRow - i && destinationColumn == initialColumn - i) return true;
+            }
         }
+
         return false;
     }
 

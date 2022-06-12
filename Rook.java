@@ -24,9 +24,29 @@ public class Rook extends Figure{
         }
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to){
-        for(int i = -7; i < 8; i++){
-            if(to.getRow() == from.getRow() + i && to.getColumn() == from.getColumn()) return true;
-            if(to.getColumn() == from.getColumn() + i && to.getRow() == from.getRow()) return true;
+        int initialRow = from.getRow();
+        int initialColumn = from.getColumn();
+        int destinationRow = to.getRow();
+        int destinationColumn = to.getColumn();
+
+        if(destinationColumn == initialColumn) {
+            for (int i = initialRow + 1; i < 8; i++) {
+                if(Board.identifyFigure(i, initialColumn) != null) break;
+                if (destinationRow == i) return true;
+            }                                                                               //Ruch wzdłuż kolumn
+            for (int i = initialRow - 1; i >= 0; i--) {
+                if(Board.identifyFigure(i, initialColumn) != null) break;
+                if (destinationRow == i) return true;
+            }
+        } else if(destinationRow == initialRow) {
+            for (int i = initialColumn + 1; i < 8; i++) {
+                if(Board.identifyFigure(initialRow, i) != null) break;
+                if (destinationColumn == i) return true;
+            }                                                                               //Ruch wzdłuż wierszy
+            for (int i = initialColumn - 1; i >= 0; i--) {
+                if(Board.identifyFigure(initialRow, i) != null) break;
+                if (destinationColumn == i) return true;
+            }
         }
         return false;
     }
