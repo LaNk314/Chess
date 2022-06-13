@@ -5,7 +5,7 @@ public class Main {
         System.out.println(board.printBoard());
 
         Pawn ptest = new Pawn();
-        Pawn TmpPawn = ptest.WhitePawns[5];
+        Pawn TmpPawn = ptest.WhitePawns[4];
 
         Rook rtest = new Rook();
         Rook TmpRook = rtest.BlackRook[1];
@@ -56,8 +56,18 @@ public class Main {
         Board.moveFigure(TmpKing, 6,4);
         Board.moveFigure(TmpKing, 5,4);
 */
-        Board.moveFigure(TmpPawn,2,5);
-        Board.moveFigure(TmpQueen, -1,5);
+        //Board.moveFigure(TmpPawn,3,4);
+
+
+        Board.moveFigure(TmpPawn,3,4);
+        Board.moveFigure(TmpPawn,4,4);
+        Board.moveFigure(TmpPawn,5,4);
+        Board.moveFigure(TmpPawn,7,4);
+
+
+
+
+
 
 
 

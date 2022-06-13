@@ -17,7 +17,11 @@ public class Board {
         String result = "";
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                result += "| " + board[i][j] + " |";
+                if(board[i][j] == null){
+                    result += "|  Empty   |";
+                    continue;
+                }
+                result += "|" + board[i][j] + "|";
             }
             result += "\n";
         }
@@ -27,6 +31,7 @@ public class Board {
             return  board[row][column];
         }
     public static void moveFigure(Figure a, int row, int column) {
+
         Coordinates primaryState = locateFigure(a);
         if(a.ifPossible(primaryState, new Coordinates(row, column))) {
             if(row >= 0 && row < 8 && column >= 0 && column < 8) {

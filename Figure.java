@@ -6,7 +6,6 @@ public abstract class Figure {
         fillBoard();
     }
     private void fillBoard(){}
-    void move(){}
     public boolean ifPossible(Coordinates from, Coordinates to){
         return false;
     }

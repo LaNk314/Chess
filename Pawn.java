@@ -24,22 +24,32 @@ public class Pawn extends Figure{
         int destinationRow = to.getRow();
         int destinationColumn = to.getColumn();
 
-        if (color){
-            if(destinationColumn == initialColumn && Board.identifyFigure(initialRow + 1, initialColumn) == null) {
-                if (destinationRow == initialRow + 2 && initialRow == 1) return true;
-                else if (destinationRow == initialRow + 1) return true;
-            } return false;
-
-        } else {
-            if (destinationColumn == initialColumn && Board.identifyFigure(initialRow - 1, initialColumn) == null) {
-                if (destinationRow == initialRow - 2 && initialRow == 6) return true;
-                else if (destinationRow == initialRow - 1) return true;
-            } return false;
+        if (color){                                                                         //kolor biały
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) {            //scenariusz dla ruchu
+                    if (destinationColumn == initialColumn) {
+                        if (destinationRow == initialRow + 2 && initialRow == 1) return true;
+                        else if (destinationRow == initialRow + 1) return true;
+                    }
+                return false;
+            } else if(!Board.identifyFigure(destinationRow,destinationColumn).color){       //scenariusz dla ataku
+                if(destinationColumn == initialColumn + 1 || destinationColumn == initialColumn - 1 && destinationRow == initialRow + 1) return true;
+            }
+        } else {                                                                            //kolor czarny
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) {            //scenariusz dla ruchu
+                if (destinationColumn == initialColumn) {
+                    if (destinationRow == initialRow - 2 && initialRow == 6) return true;
+                    else if (destinationRow == initialRow - 1) return true;
+                }
+                return false;
+            } else if(Board.identifyFigure(destinationRow,destinationColumn).color){        //scenariusz dla ataku
+                if(destinationColumn == initialColumn + 1 || destinationColumn == initialColumn - 1 && destinationRow == initialRow - 1) return true;
+            }
         }
+        return false;
     }
     @Override
     public String toString() {
-        if(this.color) return "W_Pawn";
-        else return "B_Pawn";
+        if(this.color) return "  W Pawn  ";
+        else return "  B Pawn  ";
     }
 }

@@ -27,19 +27,43 @@ public class King extends Figure{
         int destinationRow = to.getRow();
         int destinationColumn = to.getColumn();
 
-        if(destinationRow == initialRow + 1 && destinationColumn == initialColumn + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow + 1 && destinationColumn == initialColumn && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow + 1 && destinationColumn == initialColumn - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow && destinationColumn == initialColumn - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow - 1 && destinationColumn == initialColumn - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow - 1 && destinationColumn == initialColumn && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow - 1 && destinationColumn == initialColumn + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow && destinationColumn == initialColumn + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
+        if(destinationRow == initialRow + 1 && destinationColumn == initialColumn + 1){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow + 1 && destinationColumn == initialColumn){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow + 1 && destinationColumn == initialColumn - 1){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow && destinationColumn == initialColumn - 1){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow - 1 && destinationColumn == initialColumn - 1){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow - 1 && destinationColumn == initialColumn){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow - 1 && destinationColumn == initialColumn + 1){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow && destinationColumn == initialColumn + 1){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
     return false;
     }
 
     public String toString(){
-        if(this.color) return "B_King";
-        else return "W_King";
+        if(this.color) return "  W King  ";
+        else return "  B King  ";
     }
 }

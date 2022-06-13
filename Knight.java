@@ -30,19 +30,43 @@ public class Knight extends Figure{
         int destinationRow = to.getRow();
         int destinationColumn = to.getColumn();
 
-        if(destinationRow == initialRow + 2 && destinationColumn == initialColumn + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow + 2 && destinationColumn == initialColumn + -1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow + -2 && destinationColumn == initialColumn + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationRow == initialRow + -2 && destinationColumn == initialColumn - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationColumn == initialColumn + 2 && destinationRow == initialRow + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationColumn == initialColumn + 2 && destinationRow == initialRow - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationColumn == initialColumn - 2 && destinationRow == initialRow + 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        if(destinationColumn == initialColumn - 2 && destinationRow == initialRow - 1 && Board.identifyFigure(destinationRow, destinationColumn) == null) return true;
-        else return false;
+        if(destinationRow == initialRow + 2 && destinationColumn == initialColumn + 1){
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow + 2 && destinationColumn == initialColumn + -1) {
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow + -2 && destinationColumn == initialColumn + 1) {
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationRow == initialRow + -2 && destinationColumn == initialColumn - 1) {
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationColumn == initialColumn + 2 && destinationRow == initialRow + 1) {
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationColumn == initialColumn + 2 && destinationRow == initialRow - 1) {
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationColumn == initialColumn - 2 && destinationRow == initialRow + 1) {
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        if(destinationColumn == initialColumn - 2 && destinationRow == initialRow - 1) {
+            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
+            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+        }
+        return false;
     }
 
     public String toString() {
-        if(this.color)  return "W_Knight";
-        else return "B_Knight";
+        if(this.color)  return " W Knight ";
+        else return " B Knight ";
     }
 }

@@ -28,27 +28,62 @@ public class Bishop extends Figure{
         int initialColumn = from.getColumn();
         int destinationRow = to.getRow();
         int destinationColumn = to.getColumn();
-        int p = Math.min(initialColumn, initialRow);
 
         if(destinationColumn > initialColumn && destinationRow > initialRow){
-            for(int i = 1; i <= p; i++){
-                if(Board.identifyFigure(initialRow + i, initialColumn + i) != null) break;
-                if(destinationRow == initialRow + i && destinationColumn == initialColumn + i) return true;
+            for(int i = 1; i <= 7; i++){
+                int iteratedRow = initialRow + i;
+                int iteratedColumn = initialColumn + i;
+                if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
+                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    if(figureAtDestination == null) return true;
+                    else if(figureAtDestination.color != this.color) return true;
+                    return false;
+                }
+                if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
+                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                } else break;
             }
         } else if(destinationColumn > initialColumn && destinationRow < initialRow){
-            for(int i = 1; i <= p; i++){
-                if(Board.identifyFigure(initialRow - i, initialColumn + i) != null) break;
-                if(destinationRow == initialRow - i && destinationColumn == initialColumn + i) return true;
+            for(int i = 1; i <= 7; i++){
+                int iteratedRow = initialRow - i;
+                int iteratedColumn = initialColumn + i;
+                if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
+                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    if(figureAtDestination == null) return true;
+                    else if(figureAtDestination.color != this.color) return true;
+                    return false;
+                }
+                if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
+                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                } else break;
             }
         } else if(destinationColumn < initialColumn && destinationRow > initialRow){
-            for(int i = 1; i <= p; i++){
-                if(Board.identifyFigure(initialRow + i, initialColumn - i) != null) break;
-                if(destinationRow == initialRow + i && destinationColumn == initialColumn - i) return true;
+            for(int i = 1; i <= 7; i++){
+                int iteratedRow = initialRow + i;
+                int iteratedColumn = initialColumn - i;
+                if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
+                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    if(figureAtDestination == null) return true;
+                    else if(figureAtDestination.color != this.color) return true;
+                    return false;
+                }
+                if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
+                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                } else break;
             }
         } else if(destinationColumn < initialColumn && destinationRow < initialRow){
-            for(int i = 1; i <= p; i++){
-                if(Board.identifyFigure(initialRow - i, initialColumn - i) != null) break;
-                if(destinationRow == initialRow - i && destinationColumn == initialColumn - i) return true;
+            for(int i = 1; i <= 7; i++){
+                int iteratedRow = initialRow - i;
+                int iteratedColumn = initialColumn - i;
+                if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
+                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    if(figureAtDestination == null) return true;
+                    else if(figureAtDestination.color != this.color) return true;
+                    return false;
+                }
+                if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
+                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                } else break;
             }
         }
 
@@ -56,7 +91,8 @@ public class Bishop extends Figure{
     }
 
     public String toString(){
-        if(this.color) return "W_Bishop";
-        else return "B_Bishop";
+        if(this.color) return " W Bishop ";
+        else return " B Bishop ";
+
     }
 }
