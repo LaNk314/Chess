@@ -32,47 +32,47 @@ public class Rook extends Figure{
         if(destinationColumn == initialColumn) {
             for (int i = initialRow + 1; i < 8; i++) {
                 if (destinationRow == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(i, initialColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(i, initialColumn)) != null) break;
                 } else break;
             }                                                                               //Ruch wzdłuż kolumn
             for (int i = initialRow - 1; i >= 0; i--) {
                 if (destinationRow == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(i, initialColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(i, initialColumn)) != null) break;
                 } else break;
             }
         } else if(destinationRow == initialRow) {
             for (int i = initialColumn + 1; i < 8; i++) {
                 if (destinationColumn == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(initialRow, i) != null) break;
+                    if (Board.identifyFigure(new Coordinates(initialRow, i)) != null) break;
                 } else break;
             }                                                                               //Ruch wzdłuż wierszy
             for (int i = initialColumn - 1; i >= 0; i--) {
                 if (destinationColumn == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(initialRow, i) != null) break;
+                    if (Board.identifyFigure(new Coordinates(initialRow, i)) != null) break;
                 } else break;
             }
         }
@@ -80,7 +80,7 @@ public class Rook extends Figure{
     }
     @Override
     public String toString() {
-        if(this.color) return "  W Rook  ";
-        else return "  B Rook  ";
+        if(this.color) return "ROOK";
+        else return "rook";
     }
 }

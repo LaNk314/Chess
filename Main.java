@@ -1,68 +1,37 @@
 public class Main {
+    static Board board;
     public static void main(String[] args) {
+        board = new Board();
 
-        Board board = new Board();
+
+        Player black = new Player(false);
+        Player white  = new Player(true);
+
         System.out.println(board.printBoard());
 
-        Pawn ptest = new Pawn();
-        Pawn TmpPawn = ptest.WhitePawns[4];
+        while(true){                        //while(not szach)!
 
-        Rook rtest = new Rook();
-        Rook TmpRook = rtest.BlackRook[1];
+            //White player
+            System.out.println("Ruch białych");
+            white.movePrompt();
+            if(!Board.locateFigure(King.BlackKing[0])){
+                System.out.println("Wygrana białych!");
+                break;
+            }
+            System.out.println(board.printBoard());
 
-        Knight kntest = new Knight();
-        Knight TmpKnight = kntest.WhiteKnight[1];
+            //Black player
+            System.out.println("Ruch czarnych");
+            black.movePrompt();
+            if(!Board.locateFigure(King.WhiteKing[0])){
+                System.out.println("Wygrana czarnych!");
+                break;
+            }
 
-        Bishop btest = new Bishop();
-        Bishop TmpBishop = btest.BlackBishop[1];
+            System.out.println(board.printBoard());
+        }
 
-        King ktest = new King();
-        King TmpKing = ktest.WhiteKing[0];
-
-        Queen qtest = new Queen();
-        Queen TmpQueen = qtest.BlackQueen[0];
-
-
-
-
-
-       /*
-        Board.putFigure(tmp,4,2);
-        System.out.println(Board.identifyFigure(4,2));
-        System.out.println(Board.locateFigure(tmp));
-        */
-        /*
-        Board.moveFigure(Btmp, 4,4);
-        Board.moveFigure(Wtmp,3, 7);
-        */
-
-/*
-        System.out.println(Board.locateFigure(TmpRook ));
-        Board.moveFigure(TmpRook, 6,7);
-        Board.moveFigure(TmpRook, 5,0);
-
-        System.out.println(Board.locateFigure(TmpKnight));
-        Board.moveFigure(TmpKnight, 2,2);
-        Board.moveFigure(TmpKnight, 4,3);
-
-        Board.moveFigure(Btmp, 4,4);
-        System.out.println(Board.locateFigure(TmpBishop));
-        Board.moveFigure(TmpBishop, 6,4);
-        Board.moveFigure(TmpBishop, 3,7);
-        Board.moveFigure(TmpBishop, 1,5);
-
-/*
-        System.out.println(Board.locateFigure(TmpKing));
-        Board.moveFigure(TmpKing, 6,4);
-        Board.moveFigure(TmpKing, 5,4);
-*/
-        //Board.moveFigure(TmpPawn,3,4);
-
-
-        Board.moveFigure(TmpPawn,3,4);
-        Board.moveFigure(TmpPawn,4,4);
-        Board.moveFigure(TmpPawn,5,4);
-        Board.moveFigure(TmpPawn,7,4);
+        System.out.println("Koniec!");
 
 
 
@@ -71,7 +40,13 @@ public class Main {
 
 
 
-        System.out.println("\n"+board.printBoard());
+
+
+
+
+
+
+
 
 
 

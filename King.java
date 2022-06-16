@@ -1,7 +1,7 @@
 public class King extends Figure{
 
-    King[] WhiteKing = new King[1];
-    King[] BlackKing = new King[1];
+    static King[] WhiteKing = new King[1];
+    static King[] BlackKing = new King[1];
 
     King(){
         fillBoard();
@@ -11,9 +11,20 @@ public class King extends Figure{
         this.color = color;
     }
 
-    void move(){
+    public static void checkSafety() {
+        //Pawn
 
+        //Rook
+
+        //Knight
+
+        //Bishop
+
+        //King
+
+        //Queen
     }
+
 
     void fillBoard(){
         WhiteKing[0] = new King(true); Board.spawnFigure(WhiteKing[0], 0, 4);
@@ -28,42 +39,42 @@ public class King extends Figure{
         int destinationColumn = to.getColumn();
 
         if(destinationRow == initialRow + 1 && destinationColumn == initialColumn + 1){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
         if(destinationRow == initialRow + 1 && destinationColumn == initialColumn){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
         if(destinationRow == initialRow + 1 && destinationColumn == initialColumn - 1){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
         if(destinationRow == initialRow && destinationColumn == initialColumn - 1){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
         if(destinationRow == initialRow - 1 && destinationColumn == initialColumn - 1){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
         if(destinationRow == initialRow - 1 && destinationColumn == initialColumn){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
         if(destinationRow == initialRow - 1 && destinationColumn == initialColumn + 1){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
         if(destinationRow == initialRow && destinationColumn == initialColumn + 1){
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) return true;
-            else if(Board.identifyFigure(destinationRow,destinationColumn).color != this.color) return true;
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) return true;
+            else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color != this.color) return true;
         }
     return false;
     }
 
     public String toString(){
-        if(this.color) return "  W King  ";
-        else return "  B King  ";
+        if(this.color) return "KING";
+        else return "king";
     }
 }

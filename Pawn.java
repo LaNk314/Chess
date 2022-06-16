@@ -25,23 +25,23 @@ public class Pawn extends Figure{
         int destinationColumn = to.getColumn();
 
         if (color){                                                                         //kolor biały
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) {            //scenariusz dla ruchu
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) {            //scenariusz dla ruchu
                     if (destinationColumn == initialColumn) {
-                        if (destinationRow == initialRow + 2 && initialRow == 1) return true;
+                        if (destinationRow == initialRow + 2 && initialRow == 1 && Board.identifyFigure(new Coordinates(initialRow +1, initialColumn)) == null) return true;
                         else if (destinationRow == initialRow + 1) return true;
                     }
                 return false;
-            } else if(!Board.identifyFigure(destinationRow,destinationColumn).color){       //scenariusz dla ataku
+            } else if(!Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color){       //scenariusz dla ataku
                 if(destinationColumn == initialColumn + 1 || destinationColumn == initialColumn - 1 && destinationRow == initialRow + 1) return true;
             }
         } else {                                                                            //kolor czarny
-            if(Board.identifyFigure(destinationRow,destinationColumn) == null) {            //scenariusz dla ruchu
+            if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)) == null) {            //scenariusz dla ruchu
                 if (destinationColumn == initialColumn) {
-                    if (destinationRow == initialRow - 2 && initialRow == 6) return true;
+                    if (destinationRow == initialRow - 2 && initialRow == 6 && Board.identifyFigure(new Coordinates(initialRow -1, initialColumn)) == null) return true;
                     else if (destinationRow == initialRow - 1) return true;
                 }
                 return false;
-            } else if(Board.identifyFigure(destinationRow,destinationColumn).color){        //scenariusz dla ataku
+            } else if(Board.identifyFigure(new Coordinates(destinationRow,destinationColumn)).color){        //scenariusz dla ataku
                 if(destinationColumn == initialColumn + 1 || destinationColumn == initialColumn - 1 && destinationRow == initialRow - 1) return true;
             }
         }
@@ -49,7 +49,7 @@ public class Pawn extends Figure{
     }
     @Override
     public String toString() {
-        if(this.color) return "  W Pawn  ";
-        else return "  B Pawn  ";
+        if(this.color) return "PAWN";
+        else return "pawn";
     }
 }

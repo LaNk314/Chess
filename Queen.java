@@ -27,47 +27,47 @@ public class Queen extends Figure{
         if(destinationColumn == initialColumn) {
             for (int i = initialRow + 1; i < 8; i++) {
                 if (destinationRow == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(i, initialColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(i, initialColumn)) != null) break;
                 } else break;
             }                                                                               //Ruch wzdłuż kolumn
             for (int i = initialRow - 1; i >= 0; i--) {
                 if (destinationRow == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(i, initialColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(i, initialColumn)) != null) break;
                 } else break;
             }
         } else if(destinationRow == initialRow) {
             for (int i = initialColumn + 1; i < 8; i++) {
                 if (destinationColumn == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(initialRow, i) != null) break;
+                    if (Board.identifyFigure(new Coordinates(initialRow, i)) != null) break;
                 } else break;
             }                                                                               //Ruch wzdłuż wierszy
             for (int i = initialColumn - 1; i >= 0; i--) {
                 if (destinationColumn == i) {
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(i >= 0 && i < 8) {
-                    if (Board.identifyFigure(initialRow, i) != null) break;
+                    if (Board.identifyFigure(new Coordinates(initialRow, i)) != null) break;
                 } else break;
             }
         }
@@ -77,13 +77,13 @@ public class Queen extends Figure{
                 int iteratedRow = initialRow + i;
                 int iteratedColumn = initialColumn + i;
                 if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
-                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(iteratedRow, iteratedColumn)) != null) break;
                 } else break;
             }
         } else if(destinationColumn > initialColumn && destinationRow < initialRow){
@@ -91,13 +91,13 @@ public class Queen extends Figure{
                 int iteratedRow = initialRow - i;
                 int iteratedColumn = initialColumn + i;
                 if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
-                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(iteratedRow, iteratedColumn)) != null) break;
                 } else break;
             }
         } else if(destinationColumn < initialColumn && destinationRow > initialRow){
@@ -105,13 +105,13 @@ public class Queen extends Figure{
                 int iteratedRow = initialRow + i;
                 int iteratedColumn = initialColumn - i;
                 if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
-                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(iteratedRow, iteratedColumn)) != null) break;
                 } else break;
             }
         } else if(destinationColumn < initialColumn && destinationRow < initialRow){
@@ -119,13 +119,13 @@ public class Queen extends Figure{
                 int iteratedRow = initialRow - i;
                 int iteratedColumn = initialColumn - i;
                 if(destinationRow == iteratedRow && destinationColumn == iteratedColumn){
-                    Figure figureAtDestination = Board.identifyFigure(destinationRow,destinationColumn);
+                    Figure figureAtDestination = Board.identifyFigure(new Coordinates(destinationRow,destinationColumn));
                     if(figureAtDestination == null) return true;
                     else if(figureAtDestination.color != this.color) return true;
                     return false;
                 }
                 if(iteratedRow >= 0 && iteratedRow < 8 && iteratedColumn >= 0 && iteratedColumn < 8) {
-                    if (Board.identifyFigure(iteratedRow, iteratedColumn) != null) break;
+                    if (Board.identifyFigure(new Coordinates(iteratedRow, iteratedColumn)) != null) break;
                 } else break;
             }
         }
@@ -134,7 +134,7 @@ public class Queen extends Figure{
     }
 
     public String toString(){
-        if(this.color) return "  W Queen ";
-        else return "  B Queen ";
+        if(this.color) return "QUEN";
+        else return "quen";
     }
 }
