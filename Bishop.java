@@ -11,16 +11,12 @@ public class Bishop extends Figure{
         this.color = color;
     }
 
-    void move(){
-
-    }
-
     void fillBoard(){
-        WhiteBishop[0] = new Bishop(true); Board.spawnFigure(WhiteBishop[0], 0, 2);
-        WhiteBishop[1] = new Bishop(true); Board.spawnFigure(WhiteBishop[1],0,5 );
+        WhiteBishop[0] = new Bishop(true); Board.spawnFigure(WhiteBishop[0],new Coordinates(0, 2));
+        WhiteBishop[1] = new Bishop(true); Board.spawnFigure(WhiteBishop[1],new Coordinates(0,5 ));
 
-        BlackBishop[0] = new Bishop(false); Board.spawnFigure(BlackBishop[0],7, 2);
-        BlackBishop[1] = new Bishop(false); Board.spawnFigure(BlackBishop[1], 7, 5);
+        BlackBishop[0] = new Bishop(false); Board.spawnFigure(BlackBishop[0],new Coordinates(7, 2));
+        BlackBishop[1] = new Bishop(false); Board.spawnFigure(BlackBishop[1],new Coordinates(7, 5));
     }
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to){
@@ -91,8 +87,8 @@ public class Bishop extends Figure{
     }
 
     public String toString(){
-        if(this.color) return "BISH";
-        else return "bish";
+        if(this.color) return "wBish";
+        else return "bBish";
 
     }
 }

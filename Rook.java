@@ -11,16 +11,12 @@ public class Rook extends Figure{
         this.color = color;
     }
 
-    void move(){
-
-    }
-
     void fillBoard(){
-        WhiteRook[0]  = new Rook(true); Board.spawnFigure(WhiteRook[0],0, 0);
-        WhiteRook[1]  = new Rook(true); Board.spawnFigure(WhiteRook[1], 0, 7);
+        WhiteRook[0]  = new Rook(true); Board.spawnFigure(WhiteRook[0],new Coordinates(0, 0));
+        WhiteRook[1]  = new Rook(true); Board.spawnFigure(WhiteRook[1],new Coordinates( 0, 7));
 
-        BlackRook[0] = new Rook(false); Board.spawnFigure(BlackRook[0], 7, 0);
-        BlackRook[1] = new Rook(false); Board.spawnFigure(BlackRook[1], 7, 7);
+        BlackRook[0] = new Rook(false); Board.spawnFigure(BlackRook[0],new Coordinates( 7, 0));
+        BlackRook[1] = new Rook(false); Board.spawnFigure(BlackRook[1],new Coordinates( 7, 7));
         }
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to){
@@ -80,7 +76,7 @@ public class Rook extends Figure{
     }
     @Override
     public String toString() {
-        if(this.color) return "ROOK";
-        else return "rook";
+        if(this.color) return "wRook";
+        else return "bRook";
     }
 }

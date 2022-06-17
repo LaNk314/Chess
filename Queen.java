@@ -12,8 +12,8 @@ public class Queen extends Figure{
     }
 
     void fillBoard(){
-        WhiteQueen[0] = new Queen(true); Board.spawnFigure(WhiteQueen[0], 0, 3);
-        BlackQueen[0] = new Queen(false); Board.spawnFigure(BlackQueen[0], 7, 4);
+        WhiteQueen[0] = new Queen(true); Board.spawnFigure(WhiteQueen[0],new Coordinates( 0, 3));
+        BlackQueen[0] = new Queen(false); Board.spawnFigure(BlackQueen[0],new Coordinates( 7, 4));
     }
 
     @Override
@@ -134,7 +134,7 @@ public class Queen extends Figure{
     }
 
     public String toString(){
-        if(this.color) return "QUEN";
-        else return "quen";
+        if(this.color) return "wQuen";
+        else return "bQuen";
     }
 }

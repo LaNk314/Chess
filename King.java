@@ -27,8 +27,8 @@ public class King extends Figure{
 
 
     void fillBoard(){
-        WhiteKing[0] = new King(true); Board.spawnFigure(WhiteKing[0], 0, 4);
-        BlackKing[0] = new King(false); Board.spawnFigure(BlackKing[0], 7, 3);
+        WhiteKing[0] = new King(true); Board.spawnFigure(WhiteKing[0],new Coordinates( 0, 4));
+        BlackKing[0] = new King(false); Board.spawnFigure(BlackKing[0],new Coordinates( 7, 3));
     }
 
     @Override
@@ -74,7 +74,7 @@ public class King extends Figure{
     }
 
     public String toString(){
-        if(this.color) return "KING";
-        else return "king";
+        if(this.color) return "wKing";
+        else return "bKing";
     }
 }

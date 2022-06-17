@@ -10,11 +10,10 @@ public class Pawn extends Figure{
         this.color = color;
     }
 
-    void move(){}
     void fillBoard(){
         for(int i = 0; i < 8; i++){
-            WhitePawns[i] = new Pawn(true); Board.spawnFigure(WhitePawns[i],1, i);
-            BlackPawns[i] = new Pawn(false); Board.spawnFigure(BlackPawns[i],6, i);
+            WhitePawns[i] = new Pawn(true); Board.spawnFigure(WhitePawns[i],new Coordinates(1,i));
+            BlackPawns[i] = new Pawn(false); Board.spawnFigure(BlackPawns[i],new Coordinates(6,i));
         }
     }
     @Override
@@ -49,7 +48,7 @@ public class Pawn extends Figure{
     }
     @Override
     public String toString() {
-        if(this.color) return "PAWN";
-        else return "pawn";
+        if(this.color) return "wPawn";
+        else return "bPawn";
     }
 }
