@@ -14,6 +14,8 @@ public class Pawn extends Figure{
         for(int i = 0; i < 8; i++){
             WhitePawns[i] = new Pawn(true); Board.spawnFigure(WhitePawns[i],new Coordinates(1,i));
             BlackPawns[i] = new Pawn(false); Board.spawnFigure(BlackPawns[i],new Coordinates(6,i));
+            Board.whiteFigures.add(WhitePawns[i]);
+            Board.blackFigures.add(BlackPawns[i]);
         }
     }
     @Override

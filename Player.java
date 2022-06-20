@@ -1,10 +1,10 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.BrokenBarrierException;
 
 public class Player implements IPlayer {
     Scanner playerInput = new Scanner(System.in);
+
+    List aliveFigures = new ArrayList();
 
     private boolean color;
     Map<String, Integer> tiles = new HashMap<>();
@@ -57,40 +57,42 @@ public class Player implements IPlayer {
             Coordinates destination = new Coordinates(destinationInt / 10 % 10, destinationInt % 10);
 
             if(Board.moveFigure(source, destination)) {
-                if((Board.identifyFigure(source) instanceof Pawn && destination.getRow() == 0 && !color) || (Board.identifyFigure(source) instanceof Pawn && destination.getRow() == 7 && color)){
-                    while(true) {
-                        Board.spawnFigure(null, destination);
-                        System.out.println("Doszedłeś do końca planszy pionkiem, wybierz figurę do podstawienia zamiast niego!: ");
-                        System.out.println("Wieża: R; Skoczek: K; Goniec: B; Królowa: Q");
-                        String upgradedPawn = playerInput.next();
-                        try {
-                            int idk = figures.get(upgradedPawn);
-                        } catch (NullPointerException a) {
-                            System.out.println("Wybierz jedną z opcji: R, K, B, Q");
-                            continue;
+                if(Board.identifyFigure(destination) instanceof Pawn) {
+                    if ((destination.getRow() == 0 && !color) || destination.getRow() == 7 && color) {
+                        while (true) {
+                            Board.spawnFigure(null, destination);
+                            System.out.println("Doszedłeś do końca planszy pionkiem, wybierz figurę do podstawienia zamiast niego!: ");
+                            System.out.println("Wieża: R; Skoczek: K; Goniec: B; Królowa: Q");
+                            String upgradedPawn = playerInput.next();
+                            try {
+                                int idk = figures.get(upgradedPawn);
+                            } catch (NullPointerException a) {
+                                System.out.println("Wybierz jedną z opcji: R, K, B, Q");
+                                continue;
+                            }
+                            switch (upgradedPawn) {
+                                case "R":
+                                    if (color) Board.spawnFigure(new Rook().WhiteRook[0], destination);
+                                    else Board.spawnFigure(new Rook().BlackRook[0], destination);
+                                    break;
+
+                                case "K":
+                                    if (color) Board.spawnFigure(new Knight().WhiteKnight[0], destination);
+                                    else Board.spawnFigure(new Knight().BlackKnight[0], destination);
+                                    break;
+
+                                case "B":
+                                    if (color) Board.spawnFigure(new Bishop().WhiteBishop[0], destination);
+                                    else Board.spawnFigure(new Bishop().BlackBishop[0], destination);
+                                    break;
+
+                                case "Q":
+                                    if (color) Board.spawnFigure(new Queen().WhiteQueen[0], destination);
+                                    else Board.spawnFigure(new Queen().BlackQueen[0], destination);
+                                    break;
+                            }
+                            break;
                         }
-                        switch (upgradedPawn) {
-                            case "R":
-                                if (color) Board.spawnFigure(new Rook().WhiteRook[0], destination);
-                                else Board.spawnFigure(new Rook().BlackRook[0], destination);
-                                break;
-
-                            case "K":
-                                if (color) Board.spawnFigure(new Knight().WhiteKnight[0], destination);
-                                else Board.spawnFigure(new Knight().BlackKnight[0], destination);
-                                break;
-
-                            case "B":
-                                if (color) Board.spawnFigure(new Bishop().WhiteBishop[0], destination);
-                                else Board.spawnFigure(new Bishop().BlackBishop[0], destination);
-                                break;
-
-                            case "Q":
-                                if (color) Board.spawnFigure(new Queen().WhiteQueen[0], destination);
-                                else Board.spawnFigure(new Queen().BlackQueen[0], destination);
-                                break;
-                        }
-                        break;
                     }
                 }
                 break;

@@ -19,5 +19,13 @@ public class Coordinates {
         return "row: " + row + ", column:  " + column;
     }
 
+    @Override
+    public boolean equals(Object o){
+        if(o instanceof Coordinates){
+            if(this.getRow() == ((Coordinates) o).getRow() && this.getColumn() == ((Coordinates) o).getColumn()) return true;
+            else return false;
+        }
+        else return false;
+    }
 
 }

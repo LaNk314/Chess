@@ -28,7 +28,10 @@ public class King extends Figure{
 
     void fillBoard(){
         WhiteKing[0] = new King(true); Board.spawnFigure(WhiteKing[0],new Coordinates( 0, 4));
+        Board.whiteFigures.add(WhiteKing[0]);
+
         BlackKing[0] = new King(false); Board.spawnFigure(BlackKing[0],new Coordinates( 7, 3));
+        Board.blackFigures.add(BlackKing[0]);
     }
 
     @Override

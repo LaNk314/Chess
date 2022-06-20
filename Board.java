@@ -1,13 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
 
     static private Figure[][] board = new Figure[8][8];
+    static List<Figure> whiteFigures = new ArrayList<Figure>();
+    static List<Figure> blackFigures = new ArrayList<Figure>();
 
-    Pawn pawn;
-    Rook rook;
-    Knight knight;
-    Bishop bishop;
-    Queen queen;
-    King king;
+    static Pawn pawn;
+    static Rook rook;
+    static Knight knight;
+    static Bishop bishop;
+    static Queen queen;
+    static King king;
+
 
     Board() {
         pawn = new Pawn();
@@ -16,6 +22,8 @@ public class Board {
         bishop = new Bishop();
         queen = new Queen();
         king = new King();
+
+
     }
 
     public String printBoard() {
@@ -66,17 +74,29 @@ public class Board {
     public static void spawnFigure(Figure a, Coordinates where){
         board[where.getRow()][where.getColumn()] = a;
     }
-    public static boolean checkCheck(){
-        King.checkSafety();                                                                     //Do dokończenia
-        return false;
-    }
-    public static boolean locateFigure(Figure a){
+
+//    public static boolean whiteCheckCheck(){
+//        for(Figure figure : Board.whiteFigures){
+//            if(figure.ifPossible(locateFigure(figure),locateFigure(king.BlackKing[0]))) return true;
+//        }
+//                                                                             //Do dokończenia
+//        return false;
+//    }
+//
+//    public static boolean blackCheckCheck(){
+//        for(Figure figure : Board.blackFigures){
+//            if(figure.ifPossible(locateFigure(figure), locateFigure(king.WhiteKing[0]))) return true;
+//        }
+//                                                                             //Do dokończenia
+//        return false;
+//    }
+    public static Coordinates locateFigure(Figure a){
         for(int i = 0; i < 8; i++){
             for(int j = 0; j < 8; j++){
-                if(a == board[i][j]) return true;
+                if(a.equals(board[i][j])) return new Coordinates(i,j);
             }
         }
-        return false;
+        return new Coordinates(21,37);
     }
 
 }

@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 public class Main {
     static Board board;
     public static void main(String[] args) {
@@ -14,7 +16,7 @@ public class Main {
             //White player
             System.out.println("Ruch białych");
             white.movePrompt();
-            if(!Board.locateFigure(King.BlackKing[0])){
+            if(Board.locateFigure(King.BlackKing[0]).equals(new Coordinates(21,37))){
                 System.out.println("Wygrana białych!");
                 break;
             }
@@ -23,7 +25,7 @@ public class Main {
             //Black player
             System.out.println("Ruch czarnych");
             black.movePrompt();
-            if(!Board.locateFigure(King.WhiteKing[0])){
+            if(Board.locateFigure(King.WhiteKing[0]).equals(new Coordinates(21,37)) ){
                 System.out.println("Wygrana czarnych!");
                 break;
             }
@@ -31,7 +33,7 @@ public class Main {
             System.out.println(board.printBoard());
         }
 
-        System.out.println("Koniec!");
+        //System.out.println("Koniec!");
 
 
 

@@ -14,9 +14,14 @@ public class Bishop extends Figure{
     void fillBoard(){
         WhiteBishop[0] = new Bishop(true); Board.spawnFigure(WhiteBishop[0],new Coordinates(0, 2));
         WhiteBishop[1] = new Bishop(true); Board.spawnFigure(WhiteBishop[1],new Coordinates(0,5 ));
+        Board.whiteFigures.add(WhiteBishop[0]);
+        Board.whiteFigures.add(WhiteBishop[1]);
 
         BlackBishop[0] = new Bishop(false); Board.spawnFigure(BlackBishop[0],new Coordinates(7, 2));
         BlackBishop[1] = new Bishop(false); Board.spawnFigure(BlackBishop[1],new Coordinates(7, 5));
+        Board.blackFigures.add(BlackBishop[1]);
+        Board.blackFigures.add(BlackBishop[0]);
+
     }
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to){

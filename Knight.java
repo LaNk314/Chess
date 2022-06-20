@@ -13,14 +13,20 @@ public class Knight extends Figure {
 
     void fillBoard() {
         WhiteKnight[0] = new Knight(true);
-        Board.spawnFigure(WhiteKnight[0],new Coordinates(0, 1));
+        Board.spawnFigure(WhiteKnight[0], new Coordinates(0, 1));
         WhiteKnight[1] = new Knight(true);
-        Board.spawnFigure(WhiteKnight[1],new Coordinates(0, 6));
+        Board.spawnFigure(WhiteKnight[1], new Coordinates(0, 6));
+        Board.whiteFigures.add(WhiteKnight[0]);
+        Board.whiteFigures.add(WhiteKnight[1]);
+
 
         BlackKnight[0] = new Knight(false);
-        Board.spawnFigure(BlackKnight[0],new Coordinates(7, 1));
+        Board.spawnFigure(BlackKnight[0], new Coordinates(7, 1));
         BlackKnight[1] = new Knight(false);
-        Board.spawnFigure(BlackKnight[1],new Coordinates(7, 6));
+        Board.spawnFigure(BlackKnight[1], new Coordinates(7, 6));
+
+        Board.blackFigures.add(BlackKnight[0]);
+        Board.blackFigures.add(BlackKnight[1]);
     }
 
     @Override

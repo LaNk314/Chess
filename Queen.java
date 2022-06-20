@@ -13,7 +13,10 @@ public class Queen extends Figure{
 
     void fillBoard(){
         WhiteQueen[0] = new Queen(true); Board.spawnFigure(WhiteQueen[0],new Coordinates( 0, 3));
+        Board.whiteFigures.add(WhiteQueen[0]);
+
         BlackQueen[0] = new Queen(false); Board.spawnFigure(BlackQueen[0],new Coordinates( 7, 4));
+        Board.blackFigures.add(BlackQueen[0]);
     }
 
     @Override

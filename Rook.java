@@ -14,10 +14,14 @@ public class Rook extends Figure{
     void fillBoard(){
         WhiteRook[0]  = new Rook(true); Board.spawnFigure(WhiteRook[0],new Coordinates(0, 0));
         WhiteRook[1]  = new Rook(true); Board.spawnFigure(WhiteRook[1],new Coordinates( 0, 7));
+        Board.whiteFigures.add(WhiteRook[0]);
+        Board.whiteFigures.add(WhiteRook[1]);
 
         BlackRook[0] = new Rook(false); Board.spawnFigure(BlackRook[0],new Coordinates( 7, 0));
         BlackRook[1] = new Rook(false); Board.spawnFigure(BlackRook[1],new Coordinates( 7, 7));
-        }
+        Board.blackFigures.add(BlackRook[0]);
+        Board.blackFigures.add(BlackRook[1]);
+    }
     @Override
     public boolean ifPossible(Coordinates from, Coordinates to){
         int initialRow = from.getRow();
